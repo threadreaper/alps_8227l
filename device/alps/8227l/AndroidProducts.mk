@@ -1,3 +1,0 @@
-LOCAL_PATH := device/alps/8227l
-
-PRODUCT_MAKEFILES := $(LOCAL_PATH)/alps_8227l.mk
