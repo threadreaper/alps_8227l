@@ -1,0 +1,53 @@
+fixed: invalid command error in init.rc  - commented legacy system properties call
+fixed: SElinux error message regarding /postinstall context, /postinstall is not present, commented call
+fixed: typos in init.recovery.ac8227l.rc comments
+fixed: ueventd.rc delaying .coldboot_done signal by trying to set permissions on non-existent /dev/hw_random - commented call
+added: call to import ueventd.ac8227l.rc in ueventd.rc - might not be needed?
+    todo: consider combining ueventd.ac8227l.rc into ueventd.rc
+temp: init is calling to start logd, but the binary is not there - commented import statement
+fixed: fs_mgr looking for fstab.ac8227l in root, apparently the BoardConfig.mk line pointing to /etc/recovery.fstab is not followed - created /fstab.ac8227l and renamed etc/recovery.fstab to recovery.fstab.bak
+    commented TARGET_RECOVERY_FSTAB line in BoardConfig.mk
+	
+-------------------------------------------------------
+
+fixed: apparently forgot to save hw_random change to ueventd.rc, changed again
+added: TW_BRIGHTNESS_PATH, TW_MAX_BRIGHTNESS, TW_DEFAULT_BRIGHTNESS to BoardConfig.mk to address kernel log messages about twrp crashing while setting brightness
+added: TW_NO_SCREEN_BLANK to see if it stops the strange graphical artifacts happening on startup
+reverted: fs_mgr wants the fstab.ac8277l file, but twrp apparently wants /etc/recovery.fstab - revert previous change to recovery.fstab filename
+
+-------------------------------------------------------
+
+reverted: ueventd.rc is not responsible for error message about hw_random.   it's coming from init.   reverted previous change to ueventd.rc
+fixed: typo in fstab.ac8227l filename
+tried: adjust TW_MAX_BRIGHTNESS in BoardConfig.mk to a lower value and see if it influences "crash" messages on setting brightness level
+tried: change TW_NO_SCREEN_BLANK to TW_SCREEN_BLANK_ON_BOOT
+
+------------------------------------------------------
+
+fixed: removed TWRP-specific flags from fstab.ac8227l
+tried: comment out TW_MAX_BRIGHTNESS to check effects on "crash" messages and also confirm that TW_SCREEN_BLANK_ON_BOOT is the solution to the graphical glitches on startup
+added: TARGET_USES_LOGD in BoardConfig.mk so logd gets built into our recovery
+    reverted: previous temporary workaround logd error, uncommented import /init.recovery.logd.rc in init.rc
+reverted: previous change to pointer to recovery.fstab in BoardConfig.mk
+
+------------------------------------------------------
+
+added: PLATFORM_SDK_VERSION in BoardConfig.mk because TWRP checks it to add some additional libraries
+reverted: previous change to TW_MAX_BRIGHTNESS -- graphical glitches are back
+reverted: commented TW_SCREEN_BLANK_ON_BOOT -- will remove it entirely if graphical glitches go away on next build
+tried: lowered TW_DEFAULT_BRIGHTNESS to 80
+added: TWRP_INCLUDE_LOGCAT may also be required to get build system to produce logd binary in output
+
+-----------------------------------------------------
+
+checkout TeamWin/android-6.0 branch in bootable/recovery - rebuilding
+
+-----------------------------------------------------
+
+revert: no difference besides missing features, checking out TeamWin/android-9.0 again
+rebuilding as engineering build
+
+-----------------------------------------------------
+
+
+

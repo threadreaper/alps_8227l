@@ -21,6 +21,8 @@ DEVICE_PATH := device/alps/8227l
 # Device specifics
 TARGET_BOARD_PLATFORM := ac8227l
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/etc/recovery.fstab
+TARGET_USES_LOGD := true
+PLATFORM_SDK_VERSION := 23
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -55,3 +57,8 @@ TARGET_USERIMAGES_USE_F2FS := true
 TW_THEME := landscape_mdpi
 RECOVERY_TOUCHSCREEN_FLIP_X := true
 TW_USE_TOOLBOX := true
+TW_BRIGHTNESS_PATH := sys/bus/platform/leds-mt65xx/leds/lcd-backlight/brightness
+TW_MAX_BRIGHTNESS := 200
+TW_DEFAULT_BRIGHTNESS := 80
+TWRP_INCLUDE_LOGCAT := true
+TW_NO_SCREEN_BLANK := true

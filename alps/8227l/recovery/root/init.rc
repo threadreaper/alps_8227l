@@ -1,10 +1,7 @@
+import /init.recovery.${ro.hardware}.rc
 import /init.recovery.logd.rc
-#import /init.recovery.ldconfig.rc
-#import /init.recovery.mksh.rc
 import /init.recovery.usb.rc
 import /init.recovery.service.rc
-#import /init.recovery.vold_decrypt.rc
-import /init.recovery.${ro.hardware}.rc
 
 on early-init
     # Apply strict SELinux checking of PROT_EXEC on mmap/mprotect calls.
@@ -15,7 +12,7 @@ on early-init
     setcon u:r:init:s0
 
     # Set the security context of /postinstall if present.
-    restorecon /postinstall
+    # restorecon /postinstall
 
     # ueventd wants to write to /acct
     mount cgroup none /acct cpuacct
@@ -68,8 +65,8 @@ on boot
     class_start default
 
 # Load properties, pre-Android 6.0
-on load_all_props_action
-    load_all_props
+# on load_all_props_action
+#   load_all_props
 
 # Load properties, Android 6.0+
 on load_system_props_action
@@ -90,7 +87,7 @@ on late-init
     trigger post-fs-data
 
     # Load properties, pre-Android 6.0
-    trigger load_all_props_action
+    # trigger load_all_props_action
 
     # Load properties from /system/ + /factory after fs mount. Place
     # this in another action so that the load will be scheduled after the prior

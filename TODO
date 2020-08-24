@@ -1,0 +1,29 @@
+DONE * figure out why logd is not being found && re-enable it in init.rc
+			    TARGET_USES_LOGD should fix logd problem
+DONE * TWRP checks PLATFORM_SDK_VERSION to determine some libraries to use or not.   see if it's set by the build environment or if we need to declare it in BoardConfig
+pull declaration of recovery service out of init.recovery.service.rc and just put it in init.rc  -- there may be a reason to keep this, see comments in bootable/recovery/etc/Android.mk
+consider merging ueventd.ac8227l.rc into ueventd.rc as well
+create a branch for getting adb working in recovery mode
+DONE * address twrp crash on setting backlight brightness
+address "Alternate GPT is invalid, using primary GPT"
+DONE * fix graphical artifacts on recovery boot
+add build type check to creation of SE_linux set_permissive service in init.rc
+address all the SE_linux denials happening during recovery init - bypassed for now with permissive mode set
+touchscreen driver complaining about screen dimensions larger than resolution 1085x600 vx 1024x600
+/dev/.coldboot_done is still timing out - the error is coming from init, not ueventd - pretty sure this is a regression but i have no idea when i introduced it
+twrp brightness flags work, but twrp is still causing some kind of a "crash" when it sets the screen brightness.
+	oddly, after passing a value of 150 to set screen brightness, twrp has its little fit, then comes back and sets the brightness to 255, no "crash" message
+	after this second call, but it's not obeying the brightness level set in the BoardConfig.   adjusted TW_MAX_BRIGHTNESS to 200, no second call to set
+	brightness after the first one crashes, but more fallout from whatever is crashing, cpus killed and restarted, lots of gpio errors, SE_linux appears to 
+	reinit maybe?   This probably needs to be a high priority.   Doesn't seem to affect anything in the user experience, but the error logs indicate it's 
+	pretty disruptive to a lot of background processes.
+excessive debug logging from touchscreen driver - but this may be in the kernel where i can't address it
+list of available twrp BoardConfig.mk flags - https://github.com/omnirom/android_bootable_recovery/blob/34741d9cefd5981d23330eb6f6130d7d30ddf206/Android.mk
+fstab.ac8227l needs to be fully de-twrpified
+logd reinit needs SElinux domain defined
+logd needs SElinux domain defined
+protect_f and protect_s info in recovery.fstab may be wrong
+
+
+
+
