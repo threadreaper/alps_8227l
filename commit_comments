@@ -1,5 +1,5 @@
 fixed: invalid command error in init.rc  - commented legacy system properties call
-fixed: SElinux error message regarding /postinstall context, /postinstall is not present, commented call
+fixed: SELinux error message regarding /postinstall context, /postinstall is not present, commented call
 fixed: typos in init.recovery.ac8227l.rc comments
 fixed: ueventd.rc delaying .coldboot_done signal by trying to set permissions on non-existent /dev/hw_random - commented call
 added: call to import ueventd.ac8227l.rc in ueventd.rc - might not be needed?
@@ -43,10 +43,32 @@ checkout TeamWin/android-6.0 branch in bootable/recovery - rebuilding
 -----------------------------------------------------
 
 revert: no difference besides missing features, checking out TeamWin/android-9.0 again
-rebuilding as engineering build
+tried: rebuilding as engineering build
 
 -----------------------------------------------------
 
 tried: recovery.fstab in device root is probably not needed, twrp is pointed to /recovery/root/etc renamed to recovery.fstab.bak for now
 fixed: init.recovery.hlthchrg.rc is not needed - deleted
+revert: no difference building as eng, going back to userdebug
+tried: change init SELinux context to u:object_r:init:s0
+
+----------------------------------------------------
+
+tried: move declaration of init SELinux context to be very first action performed
+tried: updated SELinux roles of ueventd, healthd and adbd to object_r
+
+----------------------------------------------------
+
+tried: updated SELinux user for init, ueventd, healthd, logd, recovery and adbd to system_u
+tried: updated SELinux role for init, ueventd, healtd, logd, recovery and adbd to system_r
+
+---------------------------------------------------
+
+revert: all previous SELinux contexts changes.
+tried: all services in all init files have been given the object_r role
+    this has suppressed a lot of the SELinux messages, but there's still some kind of type enforcement going on
+    that generates a lot of denials, especially for recovery service.
+---------------------------------------------------
+
+
 

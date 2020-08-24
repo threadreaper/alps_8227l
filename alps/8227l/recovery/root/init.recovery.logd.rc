@@ -18,6 +18,7 @@ on property:vold.decrypt=trigger_load_persist_props
 
 service logd /sbin/logd
     class core
+	seclabel u:object_r:logd:s0
     socket logd stream 0666 logd logd
     socket logdr seqpacket 0666 logd logd
     socket logdw dgram 0222 logd logd
