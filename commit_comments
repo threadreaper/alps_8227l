@@ -68,7 +68,10 @@ revert: all previous SELinux contexts changes.
 tried: all services in all init files have been given the object_r role
     this has suppressed a lot of the SELinux messages, but there's still some kind of type enforcement going on
     that generates a lot of denials, especially for recovery service.
+    
 ---------------------------------------------------
 
+fixed: fstab.ac8227l replaced with an appropriately formatted version
+fixed: protect_f and protect_s partitions in recovery.fstab had wrong fstype labels
 
 
