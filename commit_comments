@@ -7,5 +7,16 @@ added: call to import ueventd.ac8227l.rc in ueventd.rc - might not be needed?
 temp: init is calling to start logd, but the binary is not there - commented import statement
 fixed: fs_mgr looking for fstab.ac8227l in root, apparently the BoardConfig.mk line pointing to /etc/recovery.fstab is not followed - created /fstab.ac8227l and renamed etc/recovery.fstab to recovery.fstab.bak
     commented TARGET_RECOVERY_FSTAB line in BoardConfig.mk
+	
+-------------------------------------------------------
+
+fixed: apparently forgot to save hw_random change to ueventd.rc, changed again
+added: TW_BRIGHTNESS_PATH, TW_MAX_BRIGHTNESS, TW_DEFAULT_BRIGHTNESS to BoardConfig.mk to address kernel log messages about twrp crashing while setting brightness
+added: TW_NO_SCREEN_BLANK to see if it stops the strange graphical artifacts happening on startup
+fixed: fs_mgr wants the fstab.ac8277l file, but twrp apparently wants /etc/recovery.fstab - revert previous change to recovery.fstab filename
+
+-------------------------------------------------------
+
+
 
 
