@@ -47,5 +47,6 @@ rebuilding as engineering build
 
 -----------------------------------------------------
 
-
+tried: recovery.fstab in device root is probably not needed, twrp is pointed to /recovery/root/etc renamed to recovery.fstab.bak for now
+fixed: init.recovery.hlthchrg.rc is not needed - deleted
 
