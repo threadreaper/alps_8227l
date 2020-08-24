@@ -29,7 +29,9 @@ file in the root of the repository, and follow a few simple guidelines:
 	    need to remember to look at again later.   any entry with the 
 		"temp:" prefix mandates a corresponding entry in the TODO file,
 		also located in the root of the repository
-	A line "-----------" is inserted for every attempt to compile after a 
+	reverted: reverting a previous change
+	tried: change is experimental, for any number of reasons
+A line "-----------" is inserted for every attempt to compile after a 
 	    set of changes were made and a build was attempted.  This is
 		why I do this here and not in the git message, because I may 
 		go through several sets of changes and new builds before I 
