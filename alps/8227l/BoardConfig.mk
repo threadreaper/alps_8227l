@@ -35,8 +35,7 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := generic
 
 # Kernel
-# BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive - redundant?
-BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2  # new
+BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2  #I have no idea what this does
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_RAMDISK_OFFSET := 0x04000000
@@ -58,7 +57,7 @@ TW_THEME := landscape_mdpi
 RECOVERY_TOUCHSCREEN_FLIP_X := true
 TW_USE_TOOLBOX := true
 TW_BRIGHTNESS_PATH := sys/bus/platform/leds-mt65xx/leds/lcd-backlight/brightness
-TW_MAX_BRIGHTNESS := 200
-TW_DEFAULT_BRIGHTNESS := 80
+TW_MAX_BRIGHTNESS := 255
+TW_DEFAULT_BRIGHTNESS := 153
 TWRP_INCLUDE_LOGCAT := true
 TW_NO_SCREEN_BLANK := true

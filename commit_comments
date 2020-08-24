@@ -25,7 +25,7 @@ tried: change TW_NO_SCREEN_BLANK to TW_SCREEN_BLANK_ON_BOOT
 ------------------------------------------------------
 
 fixed: removed TWRP-specific flags from fstab.ac8227l
-tried: comment out TW_MAX_BRIGHTNESS to check effects on "crash" messages and also confirm that TW_SCREEN_BLANK_ON_BOOT is the solution to the graphical glitches on startup
+tried: comment out TW_MAX_BRIGHTNESS to check effects on "crash" messages 
 added: TARGET_USES_LOGD in BoardConfig.mk so logd gets built into our recovery
     reverted: previous temporary workaround logd error, uncommented import /init.recovery.logd.rc in init.rc
 reverted: previous change to pointer to recovery.fstab in BoardConfig.mk
@@ -33,8 +33,6 @@ reverted: previous change to pointer to recovery.fstab in BoardConfig.mk
 ------------------------------------------------------
 
 added: PLATFORM_SDK_VERSION in BoardConfig.mk because TWRP checks it to add some additional libraries
-reverted: previous change to TW_MAX_BRIGHTNESS -- graphical glitches are back
-reverted: commented TW_SCREEN_BLANK_ON_BOOT -- will remove it entirely if graphical glitches go away on next build
 tried: lowered TW_DEFAULT_BRIGHTNESS to 80
 added: TWRP_INCLUDE_LOGCAT may also be required to get build system to produce logd binary in output
 
