@@ -1,0 +1,5 @@
+figure out why logd is not being found && re-enable it in init.rc
+pull declaration of recovery service out of init.recovery.service.rc and just put it in init.rc
+consider merging ueventd.ac8227l.rc into ueventd.rc as well
+create a branch for getting adb working in recovery mode
+address twrp crash on setting backlight brightness

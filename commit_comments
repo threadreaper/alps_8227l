@@ -1,0 +1,11 @@
+fixed: invalid command error in init.rc  - commented legacy system properties call
+fixed: SElinux error message regarding /postinstall context, /postinstall is not present, commented call
+fixed: typos in init.recovery.ac8227l.rc comments
+fixed: ueventd.rc delaying .coldboot_done signal by trying to set permissions on non-existent /dev/hw_random - commented call
+added: call to import ueventd.ac8227l.rc in ueventd.rc - might not be needed?
+    todo: consider combining ueventd.ac8227l.rc into ueventd.rc
+temp: init is calling to start logd, but the binary is not there - commented import statement
+fixed: fs_mgr looking for fstab.ac8227l in root, apparently the BoardConfig.mk line pointing to /etc/recovery.fstab is not followed - created /fstab.ac8227l and renamed etc/recovery.fstab to recovery.fstab.bak
+    commented TARGET_RECOVERY_FSTAB line in BoardConfig.mk
+
+
