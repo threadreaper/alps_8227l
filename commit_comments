@@ -75,5 +75,16 @@ fixed: fstab.ac8227l replaced with an appropriately formatted version
 fixed: protect_f and protect_s partitions in recovery.fstab had wrong fstype labels
 fixed: removed some incorrect flags from fstab.ac8227l
 
+---------------------------------------------------
 
+added: BOARD_HAS_NO_REAL_SDCARD, TW_NO_BATT_PERCENT, TW_NO_CPU_TEMP, TARGET_USE_CUSTOM_LUN_FILE_PATH
 
+---------------------------------------------------
+
+added: TARGET_RECOVERY_PIXEL_FORMAT, RECOVERY_GRAPHICS_USE_LINE_LENGTH, BOARD_USES_MTK_HARDWARE
+
+---------------------------------------------------
+
+revert: removed TARGET_RECOVERY_PIXEL_FORMAT, RECOVERY_GRAPHICS_USE_LINE_LENGTH -- had no effect on graphics
+tried: TW_BLANK_SCREEN_ON_BOOT
+added: TARGET_CPU_ABI_LIST
