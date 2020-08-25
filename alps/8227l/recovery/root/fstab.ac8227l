@@ -4,8 +4,8 @@
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 /dev/block/platform/soc/11230000.mmc/by-name/ANDROID   /system ext4 rw,noatime,nodiratime                                              wait
 /dev/block/platform/soc/11230000.mmc/by-name/CACHE    /cache  ext4 noatime,nodiratime,nosuid,nodev,noauto_da_alloc,nodelalloc,discard wait,check
-/dev/block/platform/soc/11230000.mmc/by-name/USRDATA /data   ext4 noatime,nodiratime,nosuid,nodev,noauto_da_alloc,nodelalloc,discard autorecovery,wait,check,resize
-/dev/block/platform/soc/11230000.mmc/by-name/FAT /mnt/media_rw/internal_sdcard   ext4 noatime,nodiratime,nosuid,nodev,auto_da_alloc,nodelalloc,discard wait,check,resize
+/dev/block/platform/soc/11230000.mmc/by-name/USRDATA /data   ext4 noatime,nodiratime,nosuid,nodev,noauto_da_alloc,nodelalloc,,wait,check
+/dev/block/platform/soc/11230000.mmc/by-name/FAT /mnt/media_rw/internal_sdcard   ext4 noatime,nodiratime,nosuid,nodev,auto_da_alloc,nodelalloc,discard wait,check
 
 /devices/soc/11240000.mmc*  auto      vfat      defaults        voldmanaged=sdcard1:auto,encryptable=userdata
 /devices/soc/11250000.mmc*  auto      vfat      defaults        voldmanaged=sdcard1:auto,encryptable=userdata

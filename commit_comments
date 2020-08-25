@@ -73,5 +73,7 @@ tried: all services in all init files have been given the object_r role
 
 fixed: fstab.ac8227l replaced with an appropriately formatted version
 fixed: protect_f and protect_s partitions in recovery.fstab had wrong fstype labels
+fixed: removed some incorrect flags from fstab.ac8227l
+
 
 
