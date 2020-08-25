@@ -23,6 +23,9 @@ TARGET_BOARD_PLATFORM := ac8227l
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/etc/recovery.fstab
 TARGET_USES_LOGD := true
 PLATFORM_SDK_VERSION := 23
+BOARD_HAS_NO_REAL_SDCARD := true
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun0/file
+BOARD_USES_MTK_HARDWARE := true
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -33,6 +36,7 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := generic
+TARGET_CPU_ABI_LIST := $(TARGET_CPU_ABI),$(TARGET_CPU_ABI2)
 
 # Kernel
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2  #I have no idea what this does
@@ -60,4 +64,7 @@ TW_BRIGHTNESS_PATH := sys/bus/platform/leds-mt65xx/leds/lcd-backlight/brightness
 TW_MAX_BRIGHTNESS := 255
 TW_DEFAULT_BRIGHTNESS := 153
 TWRP_INCLUDE_LOGCAT := true
-TW_NO_SCREEN_BLANK := true
+TW_BLANK_SCREEN_ON_BOOT := true
+TW_NO_BATT_PERCENT := true
+TW_NO_CPU_TEMP := true
+

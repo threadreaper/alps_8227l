@@ -14,7 +14,7 @@ twrp brightness flags work, but twrp is still causing some kind of a "crash" whe
 	reinit maybe?   This probably needs to be a high priority.   Doesn't seem to affect anything in the user experience, but the error logs indicate it's 
 	pretty disruptive to a lot of background processes.
 excessive debug logging from touchscreen driver - but this may be in the kernel where i can't address it
-list of available twrp BoardConfig.mk flags - https://github.com/omnirom/android_bootable_recovery/blob/34741d9cefd5981d23330eb6f6130d7d30ddf206/Android.mk
+logd reinit needs SELinux domain defined
 
 
 
