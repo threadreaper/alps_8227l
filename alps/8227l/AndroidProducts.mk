@@ -17,4 +17,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-	$(LOCAL_DIR)/omni_8227l.mk
+	$(LOCAL_DIR)/alps_8227l.mk

@@ -88,3 +88,22 @@ added: TARGET_RECOVERY_PIXEL_FORMAT, RECOVERY_GRAPHICS_USE_LINE_LENGTH, BOARD_US
 revert: removed TARGET_RECOVERY_PIXEL_FORMAT, RECOVERY_GRAPHICS_USE_LINE_LENGTH -- had no effect on graphics
 tried: TW_BLANK_SCREEN_ON_BOOT
 added: TARGET_CPU_ABI_LIST
+
+----------------------------------------------------
+
+tried: commenting all calls to enable or disable usb or start adbd in all init files, need to start from scratch with this
+tried: commenting out the import statement for init.recovery.ac8227l.rc to see what happens when we remove this chinese hack job
+
+---------------------------------------------------
+
+tried: set up ueventd to chmod brightness file to 0666 so twrp can find it and write to it
+
+---------------------------------------------------
+
+revert: remove TW_BLANK_SCREEN_ON_BOOT as TWRP source indicates it may account for one of the set brightness calls
+tried: modified twrp-functions.cpp to disable set brightness function
+
+---------------------------------------------------
+
+tried: added a call to start adbd to init.rc after file system is mounted
+modified build.prop on system, now stuck at boot animation
