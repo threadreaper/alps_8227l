@@ -16,25 +16,31 @@
 # limitations under the License.
 #
 
-# Specify phone tech before including full_phone
-# $(call inherit-product, vendor/omni/config/gsm.mk)
+GAPPS_VARIANT := mini
+
+# Inherit core Android stuff, and specify that this is an Android Go build
 $(call inherit-product, build/target/product/core_minimal.mk)
 $(call inherit-product, build/target/product/go_defaults_common.mk)
 
-# Inherit some common Omni stuff.
-$(call inherit-product, vendor/omni/config/common.mk)
-$(call inherit-product, build/target/product/embedded.mk)
-
-# Inherit Telephony packages
-# $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-
 # Inherit language packages
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+	
+# These pre-installed apps might be important
+PRODUCT_PACKAGES += \
+	AutoTest \
+	Bluetooth \
+	EngineerMode \
+	FMRadio \
+	XyautoSettings \
+	Backcar \
+	BrakeCheck \
+	EngManual \
+	MTKLogger \
+	YGPS
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := 8227l
-PRODUCT_NAME := omni_8227l
-PRODUCT_BRAND := alps
+PRODUCT_NAME := alps_8227l
 PRODUCT_MODEL := Alps 8227L
 PRODUCT_MANUFACTURER := alps
 PRODUCT_RELEASE_NAME := Alps 8227L
