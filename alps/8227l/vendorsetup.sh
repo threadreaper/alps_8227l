@@ -16,5 +16,5 @@
 # limitations under the License.
 #
 
-add_lunch_combo omni_8227l-userdebug
-add_lunch_combo omni_8227l-eng
+add_lunch_combo alps_8227l-userdebug
+add_lunch_combo alps_8227l-eng
